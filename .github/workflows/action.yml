@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: List Files
-    run:
-     pwd
-     ls
+      - name: List Files
+        run: |
+          pwd
+          ls
+
       - name: Simple Javascript Action
         id: hello
         uses: actions/hello-world-javascript-action@v1
@@ -19,3 +20,4 @@ jobs:
 
       - name: Get the output time
         run: echo "${{ steps.hello.outputs.time }}"
+
