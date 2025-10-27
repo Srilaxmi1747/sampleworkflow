@@ -13,10 +13,10 @@ jobs:
           ls -a
 
       - name: Checkout
-        uses: actions/checkout
+        uses: actions/checkout@v1
 
-        - name: List Files afterr checkout
-          run: |
+      - name: List Files after checkout
+        run: |
           pwd
           ls -a
 
@@ -28,4 +28,5 @@ jobs:
 
       - name: Get the output time
         run: echo "${{ steps.hello.outputs.time }}"
+
 
