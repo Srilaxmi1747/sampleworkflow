@@ -9,8 +9,8 @@ jobs:
     steps:
     - name: List Files
     run:
-    pwd
-    ls
+     pwd
+     ls
       - name: Simple Javascript Action
         id: hello
         uses: actions/hello-world-javascript-action@v1
