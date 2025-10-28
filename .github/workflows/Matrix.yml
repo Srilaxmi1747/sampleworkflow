@@ -1,0 +1,64 @@
+name: matrix
+
+on: push
+ 
+jobs:
+
+  Node-versions:
+
+    strategy:
+
+      matrix:
+
+        os: [macos-latest, windows-latest, ubuntu-latest]
+
+        node_version: [18, 20, 22]  # ✅ Supported LTS versions
+
+        include:
+
+          - os: ubuntu-latest
+
+            node_version: 20
+
+            ubuntu_8: "true"
+
+        exclude:
+
+          - os: ubuntu-latest
+
+            node_version: 18
+
+          - os: macos-latest
+
+            node_version: 22
+ 
+    runs-on: ${{ matrix.os }}
+
+    env:
+
+      UBUNTU_8: ${{ matrix.ubuntu_8 }}
+ 
+    steps:
+
+      - name: Checkout code
+
+        uses: actions/checkout@v4
+ 
+      - name: Setup Node.js
+
+        uses: actions/setup-node@v4
+
+        with:
+
+          node-version: ${{ matrix.node_version }}
+ 
+      - name: Verify Node version
+
+        run: node -v
+ 
+      - name: Display UBUNTU_8 flag
+
+        run: |
+
+          echo "UBUNTU_8 is set to: ${{ env.UBUNTU_8 }}"
+ 
