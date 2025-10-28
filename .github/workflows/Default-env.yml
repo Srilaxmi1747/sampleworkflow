@@ -11,6 +11,7 @@ jobs:
           if [ "$DEVOPS" == "DevOpsHint" ]
           then
           echo "Got Our Secret"
+          fi
         env:
            DEVOPS: ${{secrets.SECRETS_TOKEN}}   
       - name: Environment variables
