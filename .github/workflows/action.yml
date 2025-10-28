@@ -1,7 +1,17 @@
 name: Action Workflow
-
-on: [push]
-
+on:
+  push:
+    branches:
+      - main
+      - demo/*
+      - '!sample'
+    tags:
+    - v1.*
+    paths:
+    - '**.js'
+    - '**.md'
+    - 'docs/*'
+    - '!docs/file.txt'
 jobs:
   run-github-action:
     runs-on: ubuntu-latest
